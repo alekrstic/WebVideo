@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+#shareButton{
+	margin: 1% auto;
+} 
+
+ul#videoList{
+    list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+
+
+.shareButtonPosition {
+    margin:auto;
+    text-align: center;
+} 

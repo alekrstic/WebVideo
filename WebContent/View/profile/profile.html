@@ -1,0 +1,148 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profile</title>
+  <script type="text/javascript" src="../View/jquery-3.2.1.js"></script> 
+  <script type="text/javascript" src="../View/js/profile.js"></script>
+  <script type="text/javascript" src="../View/js/login.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../View/profile/pstyle.css">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</head>
+
+<!-- BODY -->
+<body>
+	 <!-- NAVIGACIJA -->
+	 <nav class="navbar navbar-default">
+    <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <img src="View/images/icon-video.png"><br>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/WebVideo/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="logout">
+        <li><a id="logout" onClick="logout();" href="#">Logout</a></li>
+      </ul>      
+    </div>
+  </div>
+</nav>
+	 
+         <!------ Include the above in your HEAD tag ---------->
+<div class="modal" id="edit-modal">
+    <div class="modal-dialog">      
+        <div class="modal-content">
+
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title">Edit profile</h1><br>
+          </div>
+
+          <div class="modal-body">
+              <form id="editForm" novalidate="" method="POST">
+              <label>First Name</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="firstName">
+
+              <label>Last name</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="lastName">
+              
+              <label>Password</label>
+              <input type="password" class="form-control form-control-lg rounded-0" name="pass" id="password">
+
+              <label>Description</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="pass" id="description">
+
+              </form>
+          </div>
+
+          <div class="modal-footer">
+             <a href="#" onClick="EditUser()" style="color:red">Save</a>
+              <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+          </div>                
+        </div>
+    </div>
+</div>
+
+  <div class="container">
+    <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name" id="userInfo">
+            First name + lastname
+          </div>
+          <div class="profile-username" id="username">
+            username
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm" id="subscribeButton" onClick="subscribe()">Subscribe</button>
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#" id="editButton" onClick="openEdit();">
+              <i class="glyphicon glyphicon-user"></i>
+              Account Settings </a>
+            </li>
+            <li>
+              <a href="#" id="blockUserButton" onClick="blockUser();">
+              <i class="glyphicon glyphicon-user"></i>
+              Block </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- END MENU -->
+      </div>
+    </div>
+
+        <div class="col-md-9">
+          <br>
+            <div class="profile-content" >
+              <label id="descriptionLabel"></label>
+            </div>
+    </div>
+
+  </div>
+</div>
+<div class="video-list">
+	<strong>Users Videos<a href="" target="_blank"></a></strong>
+		<ul id="videoList">
+	</ul>
+</div>
+
+	                   <!-- Profile info -->
+	
+	
+	
+	
+	       <!-- The Modal -->
+	
+	
+</body>
+
+</html>

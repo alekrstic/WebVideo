@@ -1,0 +1,32 @@
+@CHARSET "ISO-8859-1";
+iframe#ifVideo {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul#commentList{
+    list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+
+.center_div{
+	list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+	resize:vertical;
+    overflow:auto; 
+}
+
+textarea#commentInput {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    height: 110px;
+}

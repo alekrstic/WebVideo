@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WebVideo</display-name>
+  <welcome-file-list>
+    <welcome-file>home.html</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>servlets.InitListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <jsp-file>/View/home/home.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/home/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>video</servlet-name>
+    <jsp-file>/View/video/video.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>video</servlet-name>
+    <url-pattern>/videos/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profile</servlet-name>
+    <jsp-file>/View/profile/profile.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profile</servlet-name>
+    <url-pattern>/profile/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>profiles</servlet-name>
+    <jsp-file>/View/profile/profiles.html</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>profiles</servlet-name>
+    <url-pattern>/profiles</url-pattern>
+  </servlet-mapping>
+</web-app>

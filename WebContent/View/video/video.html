@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video</title>
+ 
+  <link rel="stylesheet" type="text/css" href="../View/css/video.css">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+</head>
+
+
+<body>
+        <!-- NAVIGACIJA -->
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/WebVideo/home">Welcome</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/WebVideo/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="profile">
+        <li><a id="profileHref" href="#">Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="login">
+        <li><a id="login" onClick="openLogin();" href="#">Join Us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="logout">
+        <li><a id="logout" onClick="logout();" href="#">Logout</a></li>
+      </ul>      
+    </div>
+  </div>
+</nav>
+
+  <div class="center_div">
+    <iframe width="560" height="315" id="ifVideo" meborder="0" allowfullscreen></iframe>
+    
+    <div class="form-group">
+        <label id="views"></label>
+        <button type="submit" class="btn btn-success" id="likeVideoButton"> Like </button>
+        <button type="submit" class="btn btn-danger" id="dislikeVideoButton"> Dislike </button>
+        <button type="button" class="btn btn-primary" id="editVideoButton" onClick="editVideo();"> Edit Video </button>
+        <button type="button" class="btn btn-primary" id="deleteVideoButton" onClick="deleteVideo();"> Delete Video </button>
+        <button type="button" class="btn btn-danger" id="blockVideoButton" onClick="blockVideo();"> Block </button>
+
+        <br>
+        <br>
+          <label> Comment: </label>
+          <textarea type="text" class="form-control comment center_div" id="commentInput" placeholder="Enter your comment"></textarea>
+          <br>
+          <button type="submit" class="btn btn-primary" id="postCommentButton"onClick="postComent()">Post Comment</button>
+    </div>
+        
+  </div>
+
+
+  
+
+      
+
+       <div class="center_div">
+          <ul class="center_div" id="commentList">
+          </ul>
+
+      </div>
+    
+
+
+ <!-- REGISTER MODAL -->
+<div class="modal" id="signup-modal">
+    <div class="modal-dialog">      
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title">Sign up</h1><br>
+          </div>
+
+          <div class="modal-body">
+              <form id="registrationForm" novalidate="" method="POST">
+              <label>First Name</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="firstName">
+
+              <label>Last name</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="lastName">
+
+              <label>Email</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="email">
+
+              <label>UserName</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="username">
+              
+              <label>Password</label>
+              <input type="password" class="form-control form-control-lg rounded-0" name="pass" id="password">
+
+              </form>
+          </div>
+
+          <div class="modal-footer">
+              <p>Already have an Account? <a href="#" onClick="openLogin()" style="color:dodgerblue">Sign in</a></p>
+              <button type="submit" class="btn btn-success float-right" id="btnRegister"  onClick="register()">Sign up</button>
+              <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    </div>
+</div> <!-- END OF REGISTER MODAL -->
+  
+
+               <!-- LOGIN MODAL -->
+<div class="modal" id="login-modal">
+    <div class="modal-dialog">      
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h1 class="modal-title">Login to Your Account</h1><br>
+          </div>
+
+          <div class="modal-body">
+              <form id="formLogin" novalidate="" method="POST">
+              <label>UserName</label>
+              <input type="text" class="form-control form-control-lg rounded-0" name="user" id="loginUsername">
+              <br>
+              <label>Password</label>
+              <input type="password" class="form-control form-control-lg rounded-0" name="pass" id="loginPassword">
+              </form>
+          </div>
+
+          <div class="modal-footer">
+             <p>Don't have an account? <a id="signup" onClick="openSignup();" href="#" style="color:dodgerblue">Sign Up.</a></p>
+              <button type="submit" class="btn btn-success float-right" id="btnLogin"  onClick="login()">Login</button>
+              <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+          </div>                
+        </div>
+      </div>
+</div>  <!-- END OF LOGIN MODAL -->
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+      
+          <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Share Share Share</h4>
+          </div>
+
+        <div class="modal-body">
+            <label>URL</label>
+            <input type="text" class="form-control form-control-lg rounded-0" id="videoURL">
+            <label>Video Image</label>
+            <input type="text" class="form-control form-control-lg rounded-0" id="imageURL">
+            <label>Description</label>
+            <input type="text" class="form-control form-control-lg rounded-0" id="description">
+            <br>
+            <select id="visibility">
+                 <option value="PUBLIC">Public</option>
+                 <option value="UNLISTED">Unlisted</option>
+                 <option value="PRIVATE">Private</option>
+            </select>
+      
+            <!-- Modal checkbox -->
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="comments">
+                <label class="form-check-label">Disable Comments</label>
+            </div>
+            <!-- Modal checkbox --> 
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="viewRating">
+                <label class="form-check-label">Disable View Rating (Likes/Dislike)</label>
+            </div>
+      </div>
+
+      <div class="modal-footer">
+           <button type="submit" class="btn btn-success float-right" value="update" id="btnUpdate"  onClick="updateVideo()">Update</button>
+            <button type="button" class="btn btn-danger float-left" data-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+</div><!-- END OF SHARE VIDEO MODAL -->
+
+	
+
+</body>
+ <script type="text/javascript" src="../View/jquery-3.2.1.js"></script> 
+  <script type="text/javascript" src="../View/js/video.js"></script>
+  <script type="text/javascript" src="../View/js/login.js"></script>
+  <script type="text/javascript" src="../View/js/comment.js"></script>
+</html>
